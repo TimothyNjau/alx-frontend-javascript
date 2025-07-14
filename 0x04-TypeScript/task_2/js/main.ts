@@ -52,4 +52,32 @@ console.log(createEmployee(1200));
 console.log(createEmployee("$450"));
 console.log(createEmployee("$600"));
 
+// functions for specific employees
+function isDirector(employee: Teacher | Director ) : boolean {
+    return employee instanceof Director;
+}
 
+const executeWork = (employee: Teacher | Director): string => {
+    if (employee instanceof Director) {
+        return employee.workDirectorTasks();
+    } else if (employee instanceof Teacher) {
+        return employee.workTeacherTasks();
+    }
+}
+
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)))
+console.log(executeWork(createEmployee("Ksh350")));
+
+//String literal types
+type Subjects = "Math" | "History";
+const teachClass = (todayClass: Subjects) : string => {
+    if (todayClass === "Math") {
+        return "Teaching Math";
+    } else if (todayClass === "History") {
+        return "Teaching History";
+    }
+}
+
+console.log(teachClass("Math"));
+console.log(teachClass("History"));
