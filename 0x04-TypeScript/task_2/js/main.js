@@ -47,3 +47,28 @@ console.log(createEmployee(200));
 console.log(createEmployee(1200));
 console.log(createEmployee("$450"));
 console.log(createEmployee("$600"));
+// functions for specific employees
+function isDirector(employee) {
+    return employee instanceof Director;
+}
+var executeWork = function (employee) {
+    if (employee instanceof Director) {
+        return employee.workDirectorTasks();
+    }
+    else if (employee instanceof Teacher) {
+        return employee.workTeacherTasks();
+    }
+};
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
+console.log(executeWork(createEmployee("Ksh350")));
+var teachClass = function (todayClass) {
+    if (todayClass === "Math") {
+        return "Teaching Math";
+    }
+    else if (todayClass === "History") {
+        return "Teaching History";
+    }
+};
+console.log(teachClass("Math"));
+console.log(teachClass("History"));
